@@ -69,14 +69,14 @@ always_ff @(posedge CLK) begin
 		end
 		if(AVL_WRITE) begin // to optimize in the future remove this if statement and replace with else.. I am specifying the flow very hard because I want to minimize error
 			case (AVL_BYTE_EN)
-				4'b1000 :
+				4'b1xxx :
 					LOCAL_REG[AVL_ADDR][31:24] <= AVL_WRITEDATA[31:24]
 
-				4'b0100 :
+				4'bx1xx :
 					LOCAL_REG[AVL_ADDR][23:16] <= AVL_WRITEDATA[23:16]
-				4'b0010 :
+				4'bxx1x :
 					LOCAL_REG[AVL_ADDR][15:8] <= AVL_WRITEDATA[15:8]
-				4'b0001 :
+				4'bxxx1 :
 					LOCAL_REG[AVL_ADDR][7:0] <= AVL_WRITEDATA[7:0] 
 				default: 
 					LOCAL_REG[AVL_ADDR] <= AVL_WRITEDATA
