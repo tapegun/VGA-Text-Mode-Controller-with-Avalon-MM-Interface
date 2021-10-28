@@ -49,3 +49,11 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
+set_global_assignment -name QIP_FILE lab7_1soc/synthesis/lab7_1soc.qip
+set_global_assignment -name SYSTEMVERILOG_FILE Lab7alt_material/vga_text_avl_interface.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Lab7alt_material/VGA_controller.sv
+set_global_assignment -name SOURCE_FILE Lab7alt_material/text_mode_vga.h
+set_global_assignment -name SYSTEMVERILOG_FILE Lab7alt_material/lab7.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Lab7alt_material/font_rom.sv
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
