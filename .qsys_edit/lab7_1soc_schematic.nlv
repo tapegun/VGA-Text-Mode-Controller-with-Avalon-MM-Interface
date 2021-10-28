@@ -1,0 +1,42 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst lab7_1soc.sdram -pg 1 -lvl 3 -y 120
+preplace inst lab7_1soc.nios2_gen2_0.cpu -pg 1
+preplace inst lab7_1soc.led -pg 1 -lvl 3 -y 1320
+preplace inst lab7_1soc.jtag_uart_0 -pg 1 -lvl 3 -y 340
+preplace inst lab7_1soc.usb_gpx -pg 1 -lvl 3 -y 1020
+preplace inst lab7_1soc.spi_0 -pg 1 -lvl 3 -y 220
+preplace inst lab7_1soc.usb_irq -pg 1 -lvl 3 -y 1120
+preplace inst lab7_1soc.nios2_gen2_0.reset_bridge -pg 1
+preplace inst lab7_1soc.sysid_qsys_0 -pg 1 -lvl 3 -y 840
+preplace inst lab7_1soc -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst lab7_1soc.timer_0 -pg 1 -lvl 3 -y 440
+preplace inst lab7_1soc.usb_rst -pg 1 -lvl 3 -y 1220
+preplace inst lab7_1soc.nios2_gen2_0 -pg 1 -lvl 2 -y 430
+preplace inst lab7_1soc.hex_digits_pio -pg 1 -lvl 3 -y 540
+preplace inst lab7_1soc.clk_0 -pg 1 -lvl 1 -y 500
+preplace inst lab7_1soc.leds_pio -pg 1 -lvl 3 -y 920
+preplace inst lab7_1soc.sdram_pll -pg 1 -lvl 3 -y 40
+preplace inst lab7_1soc.key -pg 1 -lvl 3 -y 640
+preplace inst lab7_1soc.nios2_gen2_0.clock_bridge -pg 1
+preplace inst lab7_1soc.keycode -pg 1 -lvl 3 -y 740
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)spi_0.external,(SLAVE)lab7_1soc.spi0) 1 0 3 NJ 250 NJ 250 NJ
+preplace netloc FAN_OUT<net_container>lab7_1soc</net_container>(SLAVE)spi_0.irq,(SLAVE)timer_0.irq,(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 820
+preplace netloc FAN_OUT<net_container>lab7_1soc</net_container>(SLAVE)hex_digits_pio.clk,(SLAVE)spi_0.clk,(SLAVE)leds_pio.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)timer_0.clk,(MASTER)clk_0.clk,(SLAVE)keycode.clk,(SLAVE)usb_irq.clk,(SLAVE)led.clk,(SLAVE)usb_rst.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)key.clk,(SLAVE)sdram_pll.inclk_interface,(SLAVE)usb_gpx.clk,(SLAVE)sysid_qsys_0.clk) 1 1 2 360 1270 780
+preplace netloc POINT_TO_POINT<net_container>lab7_1soc</net_container>(MASTER)sdram_pll.c0,(SLAVE)sdram.clk) 1 2 2 820 30 1040
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(MASTER)sdram_pll.c1,(MASTER)lab7_1soc.sdram_clk) 1 3 1 N
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)led.external_connection,(SLAVE)lab7_1soc.led_wire) 1 0 3 NJ 1350 NJ 1350 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)lab7_1soc.usb_gpx,(SLAVE)usb_gpx.external_connection) 1 0 3 NJ 1050 NJ 1050 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)lab7_1soc.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)lab7_1soc.leds,(SLAVE)leds_pio.external_connection) 1 0 3 NJ 950 NJ 950 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)lab7_1soc.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)lab7_1soc.key_external_connection,(SLAVE)key.external_connection) 1 0 3 NJ 670 NJ 670 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)hex_digits_pio.external_connection,(SLAVE)lab7_1soc.hex_digits) 1 0 3 NJ 570 NJ 570 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)sdram.wire,(SLAVE)lab7_1soc.sdram_wire) 1 0 3 NJ 190 NJ 190 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)lab7_1soc.usb_irq,(SLAVE)usb_irq.external_connection) 1 0 3 NJ 1150 NJ 1150 NJ
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)usb_rst.external_connection,(SLAVE)lab7_1soc.usb_rst) 1 0 3 NJ 1250 NJ 1250 NJ
+preplace netloc INTERCONNECT<net_container>lab7_1soc</net_container>(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)hex_digits_pio.s1,(SLAVE)usb_gpx.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)sdram.s1,(SLAVE)keycode.s1,(MASTER)nios2_gen2_0.data_master,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)usb_irq.s1,(SLAVE)led.s1,(SLAVE)sdram_pll.pll_slave,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)leds_pio.s1,(SLAVE)usb_rst.s1,(SLAVE)key.s1,(SLAVE)spi_0.spi_control_port,(SLAVE)timer_0.s1) 1 1 2 400 1390 760
+preplace netloc EXPORT<net_container>lab7_1soc</net_container>(SLAVE)keycode.external_connection,(SLAVE)lab7_1soc.keycode) 1 0 3 NJ 770 NJ 770 NJ
+preplace netloc INTERCONNECT<net_container>lab7_1soc</net_container>(SLAVE)usb_irq.reset,(SLAVE)key.reset,(SLAVE)spi_0.reset,(SLAVE)hex_digits_pio.reset,(SLAVE)led.reset,(SLAVE)usb_gpx.reset,(SLAVE)usb_rst.reset,(MASTER)clk_0.clk_reset,(SLAVE)sysid_qsys_0.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)sdram.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)keycode.reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)sdram_pll.inclk_interface_reset,(SLAVE)leds_pio.reset,(SLAVE)timer_0.reset) 1 1 2 380 1370 800
+levelinfo -pg 1 0 150 1150
+levelinfo -hier lab7_1soc 160 190 520 850 1060
