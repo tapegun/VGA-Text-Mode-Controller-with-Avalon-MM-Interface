@@ -118,7 +118,7 @@ module lab7 (
 	//assign hex_num_0 = 4'h0;
 	
 	//remember to rename the SOC as necessary
-	lab7_soc u0 (
+	lab7_1soc u0 (
 		.clk_clk                           (MAX10_CLK1_50),    //clk.clk
 		.reset_reset_n                     (1'b1),             //reset.reset_n
 		.altpll_0_locked_conduit_export    (),    			   //altpll_0_locked_conduit.export
@@ -128,7 +128,7 @@ module lab7 (
 		.key_external_connection_export    (KEY),    		   //key_external_connection.export
 
 		//SDRAM
-		.clk_sdram_clk(DRAM_CLK),            				   //clk_sdram.clk
+		.sdram_clk_clk(DRAM_CLK),            				   //clk_sdram.clk
 	   .sdram_wire_addr(DRAM_ADDR),               			   //sdram_wire.addr
 		.sdram_wire_ba(DRAM_BA),                			   //.ba
 		.sdram_wire_cas_n(DRAM_CAS_N),              		   //.cas_n
